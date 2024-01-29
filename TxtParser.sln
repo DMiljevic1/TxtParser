@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxtToJsonParser", "TxtToJsonParser\TxtToJsonParser.csproj", "{9507A9D5-CD17-47BB-A317-06D5CA9ABAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TxtToJsonParser", "TxtToJsonParser\TxtToJsonParser.csproj", "{9507A9D5-CD17-47BB-A317-06D5CA9ABAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModels", "DomainModels\DomainModels.csproj", "{6ACCECB4-58E3-441E-B5B4-98749F80E987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9507A9D5-CD17-47BB-A317-06D5CA9ABAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9507A9D5-CD17-47BB-A317-06D5CA9ABAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9507A9D5-CD17-47BB-A317-06D5CA9ABAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ACCECB4-58E3-441E-B5B4-98749F80E987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ACCECB4-58E3-441E-B5B4-98749F80E987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ACCECB4-58E3-441E-B5B4-98749F80E987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ACCECB4-58E3-441E-B5B4-98749F80E987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
