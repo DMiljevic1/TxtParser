@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainModels.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,12 @@ namespace DomainModels.Models
 {
 	public class Professor : Person
 	{
-        public double Paycheck { get; set; }
+        public decimal Paycheck { get; set; }
+		public Professor(string oib, string name, DateOnly dateOfBirth, Gender gender, decimal paycheck) : base(oib, name, dateOfBirth, gender)
+		{
+			Paycheck = paycheck;
+		}
+
+		public Professor() { }
     }
 }
