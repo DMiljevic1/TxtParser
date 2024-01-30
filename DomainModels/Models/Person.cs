@@ -11,15 +11,15 @@ namespace DomainModels.Models
 	{
         public string Oib { get; set; }
 		public string Name { get; set; }
-		public DateOnly DateOfBirth { get; set; }
 		public Gender Gender { get; set; }
+		public DateOnly DateOfBirth { get; set; }
 
-		protected Person(string oib, string name, DateOnly dateOfBirth, Gender gender) 
+		protected Person(string oib, string name, Gender gender, DateOnly dateOfBirth) 
 		{
 			Oib = oib;
 			Name = name;
-			DateOfBirth = dateOfBirth;
 			Gender = gender;
+			DateOfBirth = dateOfBirth;
 		}
 
 		protected Person() { }

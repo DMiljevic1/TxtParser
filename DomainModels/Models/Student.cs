@@ -11,7 +11,7 @@ namespace DomainModels.Models
 	{
         public double AverageGrade { get; set; }
 
-		public Student(string oib, string name, DateOnly dateOfBirth, Gender gender, double averageGrade) : base (oib, name, dateOfBirth, gender)
+		public Student(string oib, string name, Gender gender, DateOnly dateOfBirth, double averageGrade) : base (oib, name, gender, dateOfBirth)
 		{
 			AverageGrade = averageGrade;
 		}
