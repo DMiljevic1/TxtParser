@@ -10,6 +10,8 @@ namespace TxtToJsonParser.Services
 {
 	public class TxtParserService
 	{
+		private const string Student = "Student";
+		private const string Professor = "Professor";
 		public static IEnumerable<Person> ParseTxtFile(string filename)
 		{
 			var result = new List<Person>();
@@ -23,16 +25,20 @@ namespace TxtToJsonParser.Services
 				var name = splittedRow[2];
 				var gender = Converter.ConvertStringToGender(splittedRow[3]);
 				var dateOfBirth = Converter.ConvertStringToDateOnly(splittedRow[4]);
-				if (splittedRow[0].Equals("Student"))
+				if (splittedRow[0].Equals(Student))
 				{
 					var averageGrade = Converter.ConvertStringToDouble(splittedRow[5]);
-					var student = new Student(oib, name, gender, dateOfBirth, averageGrade);
+					if(!gender.HasValue || !dateOfBirth.HasValue || !averageGrade.HasValue)
+						continue;
+					var student = new Student(oib, name, gender.Value, dateOfBirth.Value, averageGrade.Value);
 					result.Add(student);
 				}
-				else if (splittedRow[0].Equals("Professor"))
+				else if (splittedRow[0].Equals(Professor))
 				{
 					var paycheck = Converter.ConvertStringToDecimal(splittedRow[6]);
-					var professor = new Professor(oib, name, gender, dateOfBirth, paycheck);
+					if (!gender.HasValue || !dateOfBirth.HasValue || !paycheck.HasValue)
+						continue;
+					var professor = new Professor(oib, name, gender.Value, dateOfBirth.Value, paycheck.Value);
 					result.Add(professor);
 				}
 			}
