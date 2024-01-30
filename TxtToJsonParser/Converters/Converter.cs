@@ -10,67 +10,32 @@ namespace TxtToJsonParser.Converters
 {
 	public class Converter
 	{
-		public static Gender ConvertStringToGender(string value)
+		public static Gender? ConvertStringToGender(string value)
 		{
-			try
-			{
-				if (Enum.TryParse<Gender>(value, out Gender gender))
-				{
-					return gender;
-				}
-				throw new ArgumentException("Invalid gender value: " + value);
-			}
-			catch (Exception e)
-			{
-                Console.WriteLine("Error converting string to gender: " + e);
-                throw;
-			}
-
+			if (Enum.TryParse<Gender>(value, out Gender gender))
+				return gender;
+			return null;
 		}
 
-		public static DateOnly ConvertStringToDateOnly(string value)
+		public static DateOnly? ConvertStringToDateOnly(string value)
 		{
-			try
-			{
-				return DateOnly.Parse(value);
-
-				throw new ArgumentException("Invalid date value: " + value);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error converting string to dateOnly: " + e);
-				throw;
-			}
+			if(DateOnly.TryParse(value, out DateOnly dateOnly))
+				return dateOnly;
+			return null;
 		}
 
-		public static Decimal ConvertStringToDecimal(string value)
+		public static decimal? ConvertStringToDecimal(string value)
 		{
-			try
-			{
-				return Convert.ToDecimal(value);
-
-				throw new ArgumentException("Invalid decimal value: " + value);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error converting string to decimal: " + e);
-				throw;
-			}
+			if(decimal.TryParse(value, out decimal d))
+				return d;
+			return null;
 		}
 
-		public static Double ConvertStringToDouble(string value)
+		public static double? ConvertStringToDouble(string value)
 		{
-			try
-			{
-				return Convert.ToDouble(value);
-
-				throw new ArgumentException("Invalid double value: " + value);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error converting string to double: " + e);
-				throw;
-			}
+			if (double.TryParse(value, out double d))
+				return d;
+			return null;
 		}
 	}
 }
