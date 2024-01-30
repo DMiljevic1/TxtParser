@@ -9,9 +9,19 @@ namespace DomainModels.Models
 {
 	public abstract class Person
 	{
-        protected string Oib { get; set; }
-		protected string Name { get; set; }
-		protected DateOnly DateOfBirth { get; set; }
-		protected Gender Gender { get; set; }
+        public string Oib { get; set; }
+		public string Name { get; set; }
+		public Gender Gender { get; set; }
+		public DateOnly DateOfBirth { get; set; }
+
+		protected Person(string oib, string name, Gender gender, DateOnly dateOfBirth) 
+		{
+			Oib = oib;
+			Name = name;
+			Gender = gender;
+			DateOfBirth = dateOfBirth;
+		}
+
+		protected Person() { }
     }
 }
