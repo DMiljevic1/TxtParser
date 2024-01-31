@@ -7,8 +7,8 @@ namespace TxtParser.TxtToJsonParser
 	{
 		static void Main(string[] args)
 		{
-			var persons = TxtParserService.ParseTxtFile("C:\\Users\\dujem\\OneDrive\\Documents\\TxtFile.txt");
-			foreach (var person in persons)
+			var people = TxtParserService.ParseTxtFile("C:\\Users\\dujem\\OneDrive\\Documents\\TxtFile.txt");
+			foreach (var person in people)
 			{
 				if (person is Student)
 				{
@@ -23,6 +23,11 @@ namespace TxtParser.TxtToJsonParser
 					Console.WriteLine(professor.Paycheck);
 				}
 				Console.WriteLine("----------------");
+			}
+			if(people.Any())
+			{
+				var json = JsonParserService.Serialize(people);
+				File.WriteAllTextAsync("C:\\Users\\dujem\\OneDrive\\Documents\\TxtFileInJson.json", json);
 			}
 		}
 
