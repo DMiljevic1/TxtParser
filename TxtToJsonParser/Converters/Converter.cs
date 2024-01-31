@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace TxtToJsonParser.Converters
 {
@@ -26,16 +27,28 @@ namespace TxtToJsonParser.Converters
 
 		public static decimal? ConvertStringToDecimal(string value)
 		{
-			if(decimal.TryParse(value, out decimal d))
-				return d;
-			return null;
+			try
+			{
+				return decimal.Parse(value, CultureInfo.InvariantCulture);
+			}
+			catch (Exception e)
+			{
+                Console.WriteLine("Error while parsing string value to double: " + e);
+				return null;
+            }
 		}
 
 		public static double? ConvertStringToDouble(string value)
 		{
-			if (double.TryParse(value, out double d))
-				return d;
-			return null;
+			try
+			{
+				return double.Parse(value, CultureInfo.InvariantCulture);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while parsing string value to double: " + e);
+				return null;
+			}
 		}
 	}
 }
