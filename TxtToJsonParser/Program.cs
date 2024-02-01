@@ -7,36 +7,15 @@ namespace TxtParser.TxtToJsonParser
 	{
 		static void Main(string[] args)
 		{
-			var people = TxtParserService.ParseTxtFile("C:\\Users\\dujem\\OneDrive\\Documents\\TxtFile.txt");
-			foreach (var person in people)
-			{
-				if (person is Student)
-				{
-					var student = (Student)person;
-					WritePersonProperties(student);
-					Console.WriteLine(student.AverageGrade);
-				}
-				else if (person is Professor)
-				{
-					var professor = (Professor)person;
-					WritePersonProperties(professor);
-					Console.WriteLine(professor.Paycheck);
-				}
-				Console.WriteLine("----------------");
-			}
+			var txtFilePath = "C:\\Users\\dujem\\OneDrive\\Documents\\TxtFile.txt";                                 // enter path to your text file
+			var jsonFilePath = "C:\\Users\\dujem\\OneDrive\\Documents\\TxtFileInJson.json";							// enter path to your json file
+			var people = TxtParserService.ParseTxtFile(txtFilePath);
+
 			if(people.Any())
 			{
 				var json = JsonParserService.Serialize(people);
-				File.WriteAllTextAsync("C:\\Users\\dujem\\OneDrive\\Documents\\TxtFileInJson.json", json);
+				File.WriteAllTextAsync(jsonFilePath, json);
 			}
-		}
-
-		private static void WritePersonProperties(Person person)
-		{
-			Console.WriteLine(person.Oib);
-			Console.WriteLine(person.Name);
-			Console.WriteLine(person.Gender);
-			Console.WriteLine(person.DateOfBirth);
 		}
 	}
 }
